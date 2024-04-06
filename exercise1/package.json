@@ -1,0 +1,14 @@
+{
+  "name": "frontend-challenge",
+  "version": "1.0.0",
+  "description": "Sensible frontend code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Lewis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
