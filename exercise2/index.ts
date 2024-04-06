@@ -1,4 +1,4 @@
-import { query } from "data.ts";
+import { query } from "@/data";
 
 const PORT = 3000;
 
