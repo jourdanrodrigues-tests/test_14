@@ -1,10 +1,10 @@
-import { randomUUID } from "crypto";
+import { randomUUID } from 'crypto';
 
 export type Extraction = {
   id: string;
   configuration: string;
   created: string;
-  status: "pending" | "completed" | "failed";
+  status: 'pending' | 'completed' | 'failed';
 };
 
 const database: Extraction[] = [];
@@ -15,22 +15,22 @@ for (let i = 0; i < ROWS; i++) {
     id: randomUUID(),
     configuration: `Configuration ${Math.floor(Math.random() * 5) + 1}`,
     created: new Date(Date.now() - Math.random() * 1e11).toISOString(),
-    status: Math.random() > 0.3 ? "completed" : "failed",
+    status: Math.random() > 0.3 ? 'completed' : 'failed',
   });
 }
 for (let i = 0; i < 5; i++) {
-  database[i]!.status = "pending";
-  database[i]!.created = new Date().toISOString();
+  database[i].status = 'pending';
+  database[i].created = new Date().toISOString();
 }
 
 database.sort((a, b) => b.created.localeCompare(a.created));
 
 setInterval(() => {
   if (Math.random() > 0.2) {
-    const firstNonPending = database.findIndex((e) => e.status !== "pending");
+    const firstNonPending = database.findIndex((e) => e.status !== 'pending');
     if (firstNonPending > 0) {
-      database[firstNonPending - 1]!.status =
-        Math.random() > 0.3 ? "completed" : "failed";
+      database[firstNonPending - 1].status =
+        Math.random() > 0.3 ? 'completed' : 'failed';
     }
   }
 
@@ -39,7 +39,7 @@ setInterval(() => {
       id: randomUUID(),
       configuration: `Configuration ${Math.floor(Math.random() * 5) + 1}`,
       created: new Date().toISOString(),
-      status: "pending",
+      status: 'pending',
     });
   }
 }, 5_000);
