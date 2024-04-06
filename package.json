@@ -1,14 +1,15 @@
 {
-  "name": "my-app",
+  "name": "sensible-exercise",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npx bunx --bun next dev",
+    "build": "npx bunx --bun next build",
+    "start": "npx bunx --bun next start",
+    "lint": "npx bunx --bun next lint"
   },
   "dependencies": {
+    "bun": "^1.1.2",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.1.4"
