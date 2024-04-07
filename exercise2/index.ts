@@ -1,6 +1,6 @@
 import { query } from '@/data';
 
-const PORT = 3000;
+const PORT = +(process.env.PORT || 3000);
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
