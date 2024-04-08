@@ -5,7 +5,7 @@ function Home() {
   const navigator = useNavigator();
 
   return (
-    <Page title="Check the exercises" className="gap-10">
+    <Page title="Check the exercises" className="gap-10 mt-20">
       <div className="flex gap-6">
         <button onClick={navigator.exerciseOne}>Exercise One</button>
         <button onClick={navigator.exerciseTwo}>Exercise Two</button>
