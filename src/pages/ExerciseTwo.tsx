@@ -3,8 +3,9 @@ import React, { useMemo } from 'react';
 import { Card, Typography } from '@material-tailwind/react';
 
 import Page from '@/components/Page.tsx';
-import { useExtractions } from '@/exercise2Api/queries.ts';
+import { useExtractions } from '@/exercise2Api/hooks.ts';
 import { useNavigator } from '@/routes.ts';
+import { capitalize } from '@/utils/string.ts';
 
 export default function ExerciseTwo() {
   const navigator = useNavigator();
@@ -32,17 +33,23 @@ export default function ExerciseTwo() {
             <tr className="bg-blue-gray-50 sticky top-0">
               <Header>ID</Header>
               <Header>Configuration</Header>
+              <Header>Date</Header>
               <Header>Status</Header>
             </tr>
           </thead>
           <tbody className="divide-y">
-            {extractions.map((extraction) => (
-              <tr key={extraction.id}>
-                <Cell>{extraction.id}</Cell>
-                <Cell>{extraction.configuration}</Cell>
-                <Cell>{extraction.status}</Cell>
-              </tr>
-            ))}
+            {extractions.map((extraction) => {
+              const hash = extraction.id.split('-')[0]; // For simpler UI
+              const createdDate = new Date(extraction.created).toDateString();
+              return (
+                <tr key={extraction.id}>
+                  <Cell typographyClassName="text-sm font-mono">{hash}</Cell>
+                  <Cell>{extraction.configuration}</Cell>
+                  <Cell>{createdDate}</Cell>
+                  <Cell>{capitalize(extraction.status)}</Cell>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </Card>
@@ -54,10 +61,16 @@ function Header({ children }: { children: React.ReactNode }) {
   return <th className="px-6 py-3">{children}</th>;
 }
 
-function Cell({ children }: { children: React.ReactNode }) {
+function Cell({
+  children,
+  typographyClassName,
+}: {
+  children: React.ReactNode;
+  typographyClassName?: string;
+}) {
   return (
     <td className="py-3 px-4">
-      <Typography>{children}</Typography>
+      <Typography className={typographyClassName}>{children}</Typography>
     </td>
   );
 }

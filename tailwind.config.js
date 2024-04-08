@@ -5,9 +5,17 @@ export default withMT({
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {},
-    colors: {
-      primary: '#5c6ac4',
-      secondary: '#5eb330',
+    fontFamily: {
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
     },
   },
   plugins: [],
