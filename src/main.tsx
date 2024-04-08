@@ -11,9 +11,11 @@ import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import RouterProvider from '@/providers/RouterProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  // @ts-expect-error - There's an annoying type bug with material-tailwind
   <React.StrictMode>
     <ReactQueryProvider>
       <ThemeProvider>
+        {/* @ts-expect-error - No idea what's going on here */}
         <RouterProvider />
       </ThemeProvider>
     </ReactQueryProvider>
