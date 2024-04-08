@@ -1,33 +1,45 @@
 import { useEffect, useState } from 'react';
 
+import { toast } from 'react-toastify';
+
 import type { Extraction } from '@/exercise2Api';
 import api from '@/exercise2Api';
 
 export function useExtractions() {
   const [lookup, setLookup] = useState<Record<string, Extraction>>({});
   const [flag, setFlag] = useState(true);
-  const [isFetching, setFetching] = useState(false);
 
   useEffect(() => {
-    setFetching(true);
+    let rendered = true;
+    toast('Getting more extractions');
     api
       .getExtractionsByBatch({ onBatch })
       .then(() => {
-        setTimeout(() => setFlag((prevFlag) => !prevFlag), 5 * 1000);
+        if (!rendered) return;
+        setTimeout(() => {
+          if (!rendered) return;
+          setFlag((prevFlag) => !prevFlag); // Provoking an infinite loop
+        }, 5 * 1000);
       })
-      .finally(() => setFetching(false));
+      .finally(() => {
+        if (!rendered) return;
+      });
 
-    function onBatch(extractions: Extraction[]) {
-      const data = extractions.reduce(
-        (output, extraction) => ({ ...output, [extraction.id]: extraction }),
-        {} as Record<string, Extraction>
-      );
+    return () => {
+      rendered = false;
+    };
+
+    function onBatch(newExtractions: Extraction[]) {
+      if (!rendered) return;
+      const data = {} as Record<string, Extraction>;
+      for (const extraction of newExtractions) {
+        data[extraction.id] = extraction;
+      }
       setLookup((prevState) => ({ ...prevState, ...data }));
     }
   }, [flag]);
 
-  const extractions = Object.values(lookup).sort((a, b) =>
+  return Object.values(lookup).sort((a, b) =>
     b.created.localeCompare(a.created)
   );
-  return { extractions, isFetching };
 }
