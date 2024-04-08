@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
 import type { Extraction } from '@/exercise2Api';
@@ -11,18 +12,25 @@ export function useExtractions() {
 
   useEffect(() => {
     let rendered = true;
-    toast('Getting more extractions');
+    const toastId = toast('Getting more extractions', { type: 'info' });
     api
       .getExtractionsByBatch({ onBatch })
-      .then(() => {
+      .catch((e) => {
+        const isServerDown =
+          e instanceof AxiosError && e.code === 'ERR_NETWORK';
+        if (!rendered || !isServerDown) return;
+        toast.update(toastId, {
+          type: 'error',
+          render: 'Could not reach server. Next attempt will happen shortly.',
+          autoClose: 5 * 1000,
+        });
+      })
+      .finally(() => {
         if (!rendered) return;
         setTimeout(() => {
           if (!rendered) return;
           setFlag((prevFlag) => !prevFlag); // Provoking an infinite loop
         }, 5 * 1000);
-      })
-      .finally(() => {
-        if (!rendered) return;
       });
 
     return () => {
