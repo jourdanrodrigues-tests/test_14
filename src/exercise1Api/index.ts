@@ -33,9 +33,9 @@ const api = {
         })
       );
       const columns: Column<Entry>[] = [
-        { label: 'Fruit', source: 'fruit' },
-        { label: 'Quantity', source: 'quantity' },
-        { label: 'Price', source: 'price' },
+        { label: 'Fruit', sortBy: 'fruit', source: 'fruit' },
+        { label: 'Quantity', sortBy: 'quantity', source: 'quantity' },
+        { label: 'Price', sortBy: 'price', source: 'price' },
       ];
 
       return { entries, columns };

@@ -43,9 +43,14 @@ export default function ExerciseTwo() {
             { label: 'Configuration', source: 'configuration' },
             {
               label: 'Date',
+              sortBy: 'created',
               render: (item) => new Date(item.created).toDateString(),
             },
-            { label: 'Status', render: (item) => capitalize(item.status) },
+            {
+              label: 'Status',
+              sortBy: 'status',
+              render: (item) => capitalize(item.status),
+            },
           ]}
         />
       </Card>
