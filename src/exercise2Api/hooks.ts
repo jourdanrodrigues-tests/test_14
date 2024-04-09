@@ -22,7 +22,6 @@ export function useExtractions() {
         toast.update(toastId, {
           type: 'error',
           render: 'Could not reach server. Next attempt will happen shortly.',
-          autoClose: 5 * 1000,
         });
       })
       .finally(() => {
