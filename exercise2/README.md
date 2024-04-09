@@ -1,5 +1,11 @@
 # server
 
+This server takes a PORT environment variable. If not provided, it defaults to 3002.
+
+```shell
+PORT=3132 npm start
+```
+
 To install dependencies:
 
 ```bash

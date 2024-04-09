@@ -1,6 +1,9 @@
 const express = require('express'); // eslint-disable-line @typescript-eslint/no-var-requires
+const cors = require('cors'); // eslint-disable-line @typescript-eslint/no-var-requires
 const app = express();
-const port = +(process.env.PORT || 3000);
+const port = +(process.env.PORT || 3001);
+
+app.use(cors({ origin: '*' }));
 
 const data = [
   ['Fruit', 'Quantity', 'Price'],
