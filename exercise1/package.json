@@ -4,7 +4,7 @@
   "description": "Sensible frontend code challenge",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "bun --bun index.js"
   },
   "author": "Josh Lewis",
   "license": "ISC",
