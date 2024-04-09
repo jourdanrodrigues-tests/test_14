@@ -32,7 +32,14 @@ export default function ExerciseTwo() {
         <Table
           items={extractions}
           columns={[
-            { label: 'ID', render: (item) => item.id.split('-')[0] },
+            {
+              label: 'ID',
+              render: (item) => (
+                <Typography className="font-mono text-sm">
+                  {item.id.split('-')[0]}
+                </Typography>
+              ),
+            },
             { label: 'Configuration', source: 'configuration' },
             {
               label: 'Date',
