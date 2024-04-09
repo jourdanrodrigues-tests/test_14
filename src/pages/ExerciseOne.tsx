@@ -12,7 +12,6 @@ export default function ExerciseOne() {
     useEntriesQuery();
   const highlightIndexes = useHighlightIndexesQuery();
 
-  console.log('Refreshed indexes', highlightIndexes);
   return (
     <Page title="Exercise #1" className="gap-10 mt-20">
       <div className="flex flex-col gap-6">
@@ -20,10 +19,9 @@ export default function ExerciseOne() {
         <Table
           items={entries}
           columns={columns}
-          rowClassName={(entry, index) => {
-            console.log(entry.fruit, index);
-            return highlightIndexes.has(index) ? '!bg-yellow-100' : '';
-          }}
+          rowClassName={(_, index) =>
+            highlightIndexes.has(index) ? '!bg-yellow-100' : ''
+          }
         />
       </div>
     </Page>
