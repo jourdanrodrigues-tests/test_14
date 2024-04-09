@@ -15,6 +15,7 @@ export function useEntriesQuery() {
       toast('Fetching entries', { type: 'info' });
       return api.getItems();
     },
+    refetchInterval: 2500,
   });
 }
 
@@ -22,7 +23,7 @@ export function useHighlightIndexesQuery() {
   const { data } = useQuery({
     queryKey: QueryKey.highlightIndexes(),
     queryFn: () => api.getHighlightIndexes().then((data) => new Set(data)),
-    refetchInterval: 5000,
+    refetchInterval: 2500,
   });
   return data || new Set();
 }

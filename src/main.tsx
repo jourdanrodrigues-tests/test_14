@@ -19,6 +19,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <RouterProvider />
       </ThemeProvider>
     </ReactQueryProvider>
-    <ToastContainer pauseOnFocusLoss={false} pauseOnHover={false} />
+    <ToastContainer
+      pauseOnFocusLoss={false}
+      pauseOnHover={false}
+      autoClose={2500}
+    />
   </React.StrictMode>
 );
