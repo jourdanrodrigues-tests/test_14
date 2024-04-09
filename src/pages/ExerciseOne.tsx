@@ -2,7 +2,7 @@ import Page from '@/components/Page.tsx';
 import Table from '@/components/Table.tsx';
 import {
   useEntriesQuery,
-  useHighlightIndexesQuery,
+  useHighlightIndexes,
 } from '@/exercise1Api/queries.ts';
 import { useNavigator } from '@/routes.ts';
 
@@ -10,7 +10,7 @@ export default function ExerciseOne() {
   const navigator = useNavigator();
   const { data: { entries, columns } = { entries: [], columns: [] } } =
     useEntriesQuery();
-  const highlightIndexes = useHighlightIndexesQuery();
+  const highlightIndexes = useHighlightIndexes();
 
   return (
     <Page title="Exercise #1" className="gap-10 mt-20">

@@ -19,7 +19,7 @@ export function useEntriesQuery() {
   });
 }
 
-export function useHighlightIndexesQuery() {
+export function useHighlightIndexes() {
   const { data } = useQuery({
     queryKey: QueryKey.highlightIndexes(),
     queryFn: () => api.getHighlightIndexes().then((data) => new Set(data)),
