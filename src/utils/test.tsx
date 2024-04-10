@@ -5,7 +5,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render as rtlRender, waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import { expect } from 'bun:test';
+// @ts-expect-error - No need to have "history" as an explicit dependency
+import type { InitialEntry } from 'history';
 import pretty from 'pretty';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 type TQueryHooks<
   TData = unknown,
@@ -18,6 +21,7 @@ type TQueryHooks<
 
 type RenderOptions = {
   queryHooks?: TQueryHooks;
+  route?: [InitialEntry, string];
 };
 
 export const testQueryClient = new QueryClient();
@@ -40,11 +44,26 @@ export async function render(
   }
 
   return rtlRender(node, {
-    wrapper: ({ children }) => wrapNode(children),
+    wrapper: ({ children }) => wrapNode(children, options),
   });
 }
 
-function wrapNode(node: React.ReactNode): React.ReactNode {
+function wrapNode(
+  node: React.ReactNode,
+  options?: RenderOptions
+): React.ReactNode {
+  const { route } = options || {};
+  if (route) {
+    const [entry, path] = route;
+    node = (
+      <MemoryRouter initialEntries={[entry]}>
+        <Routes>
+          <Route path={path} element={node} />
+        </Routes>
+      </MemoryRouter>
+    );
+  }
+
   return queryClientWrapper({ children: node });
 }
 

@@ -1,0 +1,70 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExerciseTwo Component should match the snapshot 1`] = `
+"<div class="max-h-screen w-screen flex flex-col items-center gap-10 justify-start mt-10">
+  <h1 class="block antialiased tracking-normal font-sans text-5xl font-semibold leading-tight text-inherit">Exercise #2 - Fetched 3 extractions</h1><button>Go back</button>
+  <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Completed: 1 | Pending: 1 | Failed: 1</p>
+  <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md h-60 overflow-y-auto">
+    <table class="table-auto relative w-full border">
+      <thead>
+        <tr class="bg-blue-gray-50 dark:bg-blue-gray-800 sticky top-0">
+          <th class="px-6 py-3">
+            <div class="flex gap-4">
+              <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">ID</p>
+            </div>
+          </th>
+          <th class="px-6 py-3">
+            <div class="flex gap-4">
+              <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Configuration</p>
+            </div>
+          </th>
+          <th class="px-6 py-3">
+            <div class="flex gap-4">
+              <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Date</p>
+              <div class="flex flex-col">
+                <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▲</p>
+                <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▼</p>
+              </div>
+            </div>
+          </th>
+          <th class="px-6 py-3">
+            <div class="flex gap-4">
+              <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Status</p>
+              <div class="flex flex-col">
+                <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▲</p>
+                <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▼</p>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        <tr class="even:bg-blue-gray-50/50">
+          <td class="py-3 px-4">
+            <p class="block antialiased font-light text-inherit font-mono text-sm">ID_1</p>
+          </td>
+          <td class="py-3 px-4">Configuration 1</td>
+          <td class="py-3 px-4">Invalid Date</td>
+          <td class="py-3 px-4">Completed</td>
+        </tr>
+        <tr class="even:bg-blue-gray-50/50">
+          <td class="py-3 px-4">
+            <p class="block antialiased font-light text-inherit font-mono text-sm">ID_2</p>
+          </td>
+          <td class="py-3 px-4">Configuration 2</td>
+          <td class="py-3 px-4">Invalid Date</td>
+          <td class="py-3 px-4">Pending</td>
+        </tr>
+        <tr class="even:bg-blue-gray-50/50">
+          <td class="py-3 px-4">
+            <p class="block antialiased font-light text-inherit font-mono text-sm">ID_3</p>
+          </td>
+          <td class="py-3 px-4">Configuration 3</td>
+          <td class="py-3 px-4">Invalid Date</td>
+          <td class="py-3 px-4">Failed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>"
+`;
