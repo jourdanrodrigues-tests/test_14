@@ -1,0 +1,7 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page Component should match the snapshot 1`] = `
+"<div class="max-h-screen w-screen flex flex-col items-center justify-center custom-page-class">
+  <h1 class="block antialiased tracking-normal font-sans text-5xl font-semibold leading-tight text-inherit">Page title</h1><span>Page content</span>
+</div>"
+`;
