@@ -20,4 +20,4 @@ Bun.serve({
   },
 });
 
-console.log(`Listening on http://localhost:${PORT}/`);
+console.log(`Exercise 2 app listening on http://localhost:${PORT}/`);

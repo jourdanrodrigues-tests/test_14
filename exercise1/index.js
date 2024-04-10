@@ -36,5 +36,5 @@ app.get('/highlights', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Sensible code challenge app listening on port ${port}`);
+  console.log(`Exercise 1 app listening on port ${port}`);
 });
