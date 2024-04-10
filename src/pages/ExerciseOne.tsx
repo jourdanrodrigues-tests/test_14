@@ -20,7 +20,9 @@ export default function ExerciseOne() {
           items={entries}
           columns={columns}
           rowClassName={(_, index) =>
-            highlightIndexes.has(index) ? '!bg-yellow-100' : ''
+            highlightIndexes.has(index)
+              ? 'dark:bg-yellow-800 bg-yellow-100'
+              : ''
           }
         />
       </div>

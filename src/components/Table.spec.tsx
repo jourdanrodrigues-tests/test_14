@@ -20,6 +20,7 @@ describe('Table Component', () => {
           { label: 'ID', sortBy: 'id', source: 'id' },
           { label: 'Row', source: 'name' },
         ]}
+        rowClassName={(_, index) => (index === 1 ? 'custom-row-class' : '')}
         items={rows}
       />
     );

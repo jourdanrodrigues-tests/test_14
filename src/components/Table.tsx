@@ -46,7 +46,7 @@ export default function Table<T extends Item>({
   return (
     <table className="table-auto relative w-full border">
       <thead>
-        <tr className="bg-blue-gray-50 sticky top-0">
+        <tr className="bg-blue-gray-50 dark:bg-blue-gray-800 sticky top-0">
           {columns.map(({ label, sortBy }) => {
             const sortAscValue = String(sortBy);
             const sortDescValue = `-${String(sortBy)}`;
@@ -84,7 +84,7 @@ export default function Table<T extends Item>({
           return (
             <tr
               key={item.id}
-              className={mergeCls('even:bg-blue-gray-50/50', className)}
+              className={className || 'even:bg-blue-gray-50/50'}
             >
               {columns.map(({ source, render }, columnIndex) => (
                 <td key={`${item.id}-${columnIndex}`} className="py-3 px-4">
