@@ -14,7 +14,7 @@ export function useExtractions() {
     let rendered = true;
     const toastId = toast('Getting more extractions', { type: 'info' });
     api
-      .getExtractionsByBatch({ onBatch })
+      .getExtractionBatch({ onBatch })
       .catch((e) => {
         if (!rendered || !isOffline(e)) return;
         toast.update(toastId, {

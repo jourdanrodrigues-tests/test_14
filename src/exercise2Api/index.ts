@@ -24,22 +24,21 @@ const client = axios.create({
 
 const api = {
   client,
-  getExtractionsByBatch,
+  getExtractionBatch,
 };
 
 export default api;
 
-async function getExtractionsByBatch({
+async function getExtractionBatch({
   onBatch,
+  batchSize,
 }: {
-  onBatch: (extractions: Extraction[]) => unknown;
+  onBatch: (extractions: Extraction[]) => void;
+  batchSize?: number;
 }) {
   let nextToken: string | undefined | null = undefined;
   while (nextToken !== null) {
-    const params = {
-      limit: 10,
-      continuation_token: nextToken,
-    };
+    const params = { limit: batchSize, continuation_token: nextToken };
     try {
       const response: AxiosResponse<ExtractionResponse> =
         await client.get<ExtractionResponse>('/', { params });
