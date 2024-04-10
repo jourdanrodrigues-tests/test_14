@@ -1,6 +1,8 @@
 import type { AxiosResponse } from 'axios';
 import axios from 'axios';
 
+import { isServerError } from '@/utils/axios.ts';
+
 type RuntimeToken = string | undefined | null;
 
 export type Extraction = {
@@ -21,6 +23,7 @@ const client = axios.create({
 });
 
 const api = {
+  client,
   getExtractionsByBatch,
 };
 
@@ -37,11 +40,15 @@ async function getExtractionsByBatch({
       limit: 10,
       continuation_token: nextToken,
     };
-    const response: AxiosResponse<ExtractionResponse> =
-      await client.get<ExtractionResponse>('/', { params });
-    if (Math.floor(response.status / 100) === 2) {
-      onBatch(response.data.data);
-      nextToken = response.data.continuation_token;
+    try {
+      const response: AxiosResponse<ExtractionResponse> =
+        await client.get<ExtractionResponse>('/', { params });
+      if (Math.floor(response.status / 100) === 2) {
+        onBatch(response.data.data);
+        nextToken = response.data.continuation_token;
+      }
+    } catch (e: unknown) {
+      if (!isServerError(e)) throw e;
     }
   }
 }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
 import type { Extraction } from '@/exercise2Api';
 import api from '@/exercise2Api';
+import { isOffline } from '@/utils/axios.ts';
 
 export function useExtractions() {
   const [lookup, setLookup] = useState<Record<string, Extraction>>({});
@@ -16,9 +16,7 @@ export function useExtractions() {
     api
       .getExtractionsByBatch({ onBatch })
       .catch((e) => {
-        const isServerDown =
-          e instanceof AxiosError && e.code === 'ERR_NETWORK';
-        if (!rendered || !isServerDown) return;
+        if (!rendered || !isOffline(e)) return;
         toast.update(toastId, {
           type: 'error',
           render: 'Could not reach server. Next attempt will happen shortly.',

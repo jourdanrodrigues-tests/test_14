@@ -1,7 +1,8 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import currency from 'currency.js';
 
 import type { Column } from '@/components/Table.tsx';
+import { isOffline, isServerError } from '@/utils/axios.ts';
 
 export type ServerEntry = [string, string, string];
 
@@ -52,11 +53,7 @@ export default api;
 
 function withRetryOrRethrow<T = unknown>(action: () => Promise<T>): Promise<T> {
   return action().catch((reason: Error) => {
-    const shouldRetry =
-      reason instanceof AxiosError &&
-      (reason.code === 'ERR_NETWORK' ||
-        Math.floor((reason.response?.status || 0) / 100)) === 5;
-    if (shouldRetry) return withRetryOrRethrow(action);
-    throw reason;
+    if (!isOffline(reason) && !isServerError(reason)) throw reason;
+    return withRetryOrRethrow(action);
   });
 }
