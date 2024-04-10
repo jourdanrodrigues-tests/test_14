@@ -21,6 +21,7 @@ const client = axios.create({
 });
 
 const api = {
+  client,
   getItems() {
     const _request = () => client.get<EntryResponse>('/list');
 
