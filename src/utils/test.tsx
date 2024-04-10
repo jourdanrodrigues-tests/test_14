@@ -39,10 +39,9 @@ export async function render(
     await Promise.all(hookPromises);
   }
 
-  const result = rtlRender(node, {
+  return rtlRender(node, {
     wrapper: ({ children }) => wrapNode(children),
   });
-  return result.container;
 }
 
 function wrapNode(node: React.ReactNode): React.ReactNode {

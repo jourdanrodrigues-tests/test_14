@@ -5,12 +5,12 @@ import { expectSnapshot, render } from '@/utils/test';
 
 describe('Page Component', () => {
   it('should match the snapshot', async () => {
-    const element = await render(
+    const result = await render(
       <Page className="custom-page-class" title="Page title">
         <span>Page content</span>
       </Page>
     );
 
-    expectSnapshot(element).toMatchSnapshot();
+    expectSnapshot(result.container).toMatchSnapshot();
   });
 });

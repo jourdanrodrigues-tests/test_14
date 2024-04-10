@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx bunx --bun vite",
     "build": "npx tsc && npx bunx --bun vite build",
-    "test": "bun test",
+    "test": "npx bun test",
+    "update-snapshots": "npx bun test --update-snapshots",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "npx bunx --bun vite preview"
   },
@@ -28,6 +29,7 @@
     "@tanstack/eslint-plugin-query": "^5.20.1",
     "@testing-library/react": "^14.3.0",
     "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^20",
     "@types/pretty": "^2.0.3",
     "@types/react": "18.2.19",

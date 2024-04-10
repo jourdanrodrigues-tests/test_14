@@ -1,0 +1,149 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component should match the snapshot: unfiltered 1`] = `
+"<table class="table-auto relative w-full border">
+  <thead>
+    <tr class="bg-blue-gray-50 sticky top-0">
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">ID</p>
+          <div class="flex flex-col">
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▲</p>
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▼</p>
+          </div>
+        </div>
+      </th>
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Row</p>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="divide-y">
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_1</td>
+      <td class="py-3 px-4">Name 1</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_3</td>
+      <td class="py-3 px-4">Name 3</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_2</td>
+      <td class="py-3 px-4">Name 2</td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`Table Component should match the snapshot: ascending 1`] = `
+"<table class="table-auto relative w-full border">
+  <thead>
+    <tr class="bg-blue-gray-50 sticky top-0">
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">ID</p>
+          <div class="flex flex-col">
+            <p class="block antialiased font-sans font-light text-xs leading-none cursor-pointer select-none text-yellow-700 dark:text-black">▲</p>
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▼</p>
+          </div>
+        </div>
+      </th>
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Row</p>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="divide-y">
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_1</td>
+      <td class="py-3 px-4">Name 1</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_2</td>
+      <td class="py-3 px-4">Name 2</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_3</td>
+      <td class="py-3 px-4">Name 3</td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`Table Component should match the snapshot: descending 1`] = `
+"<table class="table-auto relative w-full border">
+  <thead>
+    <tr class="bg-blue-gray-50 sticky top-0">
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">ID</p>
+          <div class="flex flex-col">
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▲</p>
+            <p class="block antialiased font-sans font-light text-xs leading-none cursor-pointer select-none text-yellow-700 dark:text-black">▼</p>
+          </div>
+        </div>
+      </th>
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Row</p>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="divide-y">
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_3</td>
+      <td class="py-3 px-4">Name 3</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_2</td>
+      <td class="py-3 px-4">Name 2</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_1</td>
+      <td class="py-3 px-4">Name 1</td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`Table Component should match the snapshot: back to unfiltered 1`] = `
+"<table class="table-auto relative w-full border">
+  <thead>
+    <tr class="bg-blue-gray-50 sticky top-0">
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">ID</p>
+          <div class="flex flex-col">
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▲</p>
+            <p class="block antialiased font-sans font-light text-inherit text-xs leading-none cursor-pointer select-none">▼</p>
+          </div>
+        </div>
+      </th>
+      <th class="px-6 py-3">
+        <div class="flex gap-4">
+          <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit">Row</p>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="divide-y">
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_1</td>
+      <td class="py-3 px-4">Name 1</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_3</td>
+      <td class="py-3 px-4">Name 3</td>
+    </tr>
+    <tr class="even:bg-blue-gray-50/50">
+      <td class="py-3 px-4">ID_2</td>
+      <td class="py-3 px-4">Name 2</td>
+    </tr>
+  </tbody>
+</table>"
+`;
